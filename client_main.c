@@ -6,7 +6,7 @@
 /*   By: scha <scha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 17:00:48 by scha              #+#    #+#             */
-/*   Updated: 2021/06/10 17:03:54 by scha             ###   ########.fr       */
+/*   Updated: 2021/06/10 18:10:27 by scha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static void	check_argv(char **argv)
 	i = 0;
 	while (argv[1][i])
 	{
-		if (argv[1][i] < '0' && argv[1][i] > '9')
-			error("input");
+		if (argv[1][i] < '0' || argv[1][i] > '9')
+			error("pid");
 		i++;
 	}
 }
@@ -67,12 +67,9 @@ int			main(int argc, char **argv)
 	if (argc == 3)
 	{
 		check_argv(argv);
-		send_bit_to_sever(argv[1], argv[2]);
+		send_bit_sever(argv[1], argv[2]);
 	}
 	else
-	{
-		write(2, "wrong input\n", 12);
-		exit(1);
-	}
+		error("input");
 	return (1);
 }

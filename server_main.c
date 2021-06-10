@@ -6,7 +6,7 @@
 /*   By: scha <scha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 17:02:22 by scha              #+#    #+#             */
-/*   Updated: 2021/06/10 17:04:32 by scha             ###   ########.fr       */
+/*   Updated: 2021/06/10 17:41:12 by scha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void		get_bit(int sig)
 	static char	output;
 
 	if (sig == SIGUSR1)
-		i = 1;nor	
+		i = 1;
 	else
 		i = 0;
 	output += i << size;
