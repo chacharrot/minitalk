@@ -1,14 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server_main.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: scha <scha@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/10 17:02:22 by scha              #+#    #+#             */
+/*   Updated: 2021/06/10 17:04:32 by scha             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "./libft/libft.h"
 #include "minitalk.h"
-#include <stdio.h>
-
-void		*s_mlc(void *index)
-{
-	if (index == NULL)
-		index = malloc(4);
-	return (index);
-}
 
 void		get_bit(int sig)
 {
@@ -17,7 +20,7 @@ void		get_bit(int sig)
 	static char	output;
 
 	if (sig == SIGUSR1)
-		i = 1;
+		i = 1;nor	
 	else
 		i = 0;
 	output += i << size;

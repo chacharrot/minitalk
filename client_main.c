@@ -1,8 +1,17 @@
-#include <unistd.h>
-#include <signal.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client_main.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: scha <scha@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/10 17:00:48 by scha              #+#    #+#             */
+/*   Updated: 2021/06/10 17:03:54 by scha             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./libft/libft.h"
-#include <stdio.h>
+#include "minitalk.h"
 
 static void	error(char *str)
 {
@@ -18,25 +27,24 @@ static void	check_argv(char **argv)
 	i = 0;
 	while (argv[1][i])
 	{
-		if (argv[1][i] < '0' && argv[1][i] >'9')
+		if (argv[1][i] < '0' && argv[1][i] > '9')
 			error("input");
 		i++;
 	}
 }
 
-static void	send_bit_to_sever(char *pidc, char *str)
+void		send_bit_sever(char *pidc, char *str)
 {
-	int	pid;
-	int	shift;
-	int	i;
-	unsigned char j;
-	
+	int				pid;
+	int				shift;
+	int				i;
+
 	pid = ft_atoi(pidc);
-	i = 0;
-	while (str[i])
+	i = -1;
+	while (str[++i])
 	{
 		shift = 8;
-		while (shift)
+		while (shift--)
 		{
 			if (str[i] & 1)
 			{
@@ -44,17 +52,17 @@ static void	send_bit_to_sever(char *pidc, char *str)
 					error("pid");
 			}
 			else
+			{
 				if (kill(pid, SIGUSR2) == -1)
 					error("pid");
+			}
 			str[i] >>= 1;
-			shift--;
 			usleep(200);
 		}
-		i++;
 	}
 }
 
-int	main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
 	if (argc == 3)
 	{
