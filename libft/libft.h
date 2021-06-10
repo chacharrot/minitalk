@@ -6,7 +6,7 @@
 /*   By: scha <scha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:26:26 by scha              #+#    #+#             */
-/*   Updated: 2021/06/10 16:51:21 by scha             ###   ########.fr       */
+/*   Updated: 2021/06/10 19:02:11 by scha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <signal.h>
 
 void	ft_putstr(char *str);
 void	ft_putnbr(int nb);

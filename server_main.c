@@ -6,12 +6,11 @@
 /*   By: scha <scha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 17:02:22 by scha              #+#    #+#             */
-/*   Updated: 2021/06/10 17:41:12 by scha             ###   ########.fr       */
+/*   Updated: 2021/06/10 18:50:57 by scha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
-#include "minitalk.h"
 
 void		get_bit(int sig)
 {
